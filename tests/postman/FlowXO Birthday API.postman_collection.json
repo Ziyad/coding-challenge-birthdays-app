@@ -1,0 +1,82 @@
+{
+	"variables": [],
+	"info": {
+		"name": "FlowXO Birthday API",
+		"_postman_id": "059f570f-1504-539b-7e3f-a45b8f99ad80",
+		"description": "Collection of example requests to utilise the Birthday API developed for the FlowXO birthday coding challenge app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Update birthday",
+			"request": {
+				"url": "http://localhost:8080/api/birthdays",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"_id\": \"5b68ae14c4fc2421b8f87491\",\n        \"name\": \"Katie Smith\",\n        \"birthday\": \"1973-05-20T00:00:00.000Z\",\n        \"__v\": 0\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Post example birthdays",
+			"request": {
+				"url": "http://localhost:8080/api/birthdays",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"_id\": \"5b68ae14c4fc2421b8f87490\",\n        \"name\": \"John Doe\",\n        \"birthday\": \"1981-08-02T00:00:00.000Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"5b68ae14c4fc2421b8f87491\",\n        \"name\": \"Katie Smith\",\n        \"birthday\": \"1973-05-20T00:00:00.000Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"5b68ae14c4fc2421b8f87492\",\n        \"name\": \"Anna Jackson\",\n        \"birthday\": \"1993-10-15T00:00:00.000Z\",\n        \"__v\": 0\n    }\n]"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get birthdays",
+			"request": {
+				"url": "http://localhost:8080/api/birthdays",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Get all birthdays"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete birthday",
+			"request": {
+				"url": "http://localhost:8080/api/birthdays",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n        \"_id\": \"5b68ae14c4fc2421b8f87491\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
