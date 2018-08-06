@@ -1,0 +1,9 @@
+{
+  "mongo": {
+    "host": "localhost",
+    "port": 27017,
+    "username": "birthdays-app",
+    "password": "BzjRwuSs228M6nCc",
+    "database": "birthdays"
+  }
+}
