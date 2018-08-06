@@ -2,7 +2,7 @@ const moment = require('moment');
 
 const logger = require('../logging');
 
-const Birthdays = require('../model/birthdays');
+const Birthdays = require('../model/birthdays.model');
 
 // create birthday
 const createBirthdays = function(birthdays, cb) {
