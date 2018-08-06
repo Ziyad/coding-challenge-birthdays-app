@@ -9,7 +9,7 @@ router.get(
     '/',
     function(req, res) {
         Birthdays.getBirthdays(
-            req.query.filter,
+            req.query,
             function(err, birthdays) {
                 if(err) {
                     logger.error(err);

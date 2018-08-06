@@ -12,22 +12,26 @@ const createBirthdays = function(birthdays, cb) {
     }
 };
 
+Object.prototype.hasOwnProperty = function(property) {
+    return this[property] !== undefined;
+};
+
 // get birthdays
 const getBirthdays = function(filter, cb) {
 
     logger.info("getBirthdays request");
     var findConditions = {}; // starts empty
     // check for filter present
-    if(filter) {
+    if(filter.hasOwnProperty("from") && filter.hasOwnProperty("to")) {
         logger.info("filter: " + JSON.stringify(filter));
         var validFilter = true;
         // validate incoming "from" date
-        if(!filter.from || !moment(filter.from).isValid()) {
+        if(!filter.from || !moment(new Date(filter.from)).isValid()) {
             logger.info("missing 'from' attribute or invalid date");
             validFilter = false;
         }
         // validate incoming "to" date
-        if(!filter.to || !moment(filter.to).isValid()) {
+        if(!filter.to || !moment(new Date(filter.to)).isValid()) {
             logger.info("missing 'to' attribute or invalid date");
             validFilter = false;
         }
@@ -37,8 +41,8 @@ const getBirthdays = function(filter, cb) {
         } else {
             findConditions = {
                 birthday: {
-                    $gte: filter.from,
-                    $lte: filter.to
+                    $gte: moment(filter.from).toDate(),
+                    $lte: moment(filter.to).toDate()
                 }
             };
         }

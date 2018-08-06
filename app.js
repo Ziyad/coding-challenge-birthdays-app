@@ -16,10 +16,10 @@ mongoose.connect(constructMongoDbUri(mongoConfig), {});
 
 app.use(bodyParser());
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'view')));
 
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'view', 'index.html'));
 });
 
 app.use('/api/birthdays', require('./controller/birthdays.router'));
