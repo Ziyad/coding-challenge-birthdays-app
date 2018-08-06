@@ -47,8 +47,13 @@ const getBirthdays = function(filter, cb) {
 };
 
 const updateBirthday = function(birthday, cb) {
-    logging.info("Updating Birthday: " + JSON.stringify(birthday));
+    logger.info("updating birthday: " + JSON.stringify(birthday));
     Birthdays.update(birthday, cb);
+};
+
+const deleteBirthday = function(birthday, cb) {
+    logger.info("deleting birthday: " + JSON.stringify(birthday));
+    Birthdays.deleteOne({_id: birthday._id}, cb);
 };
 
 
@@ -56,5 +61,6 @@ const updateBirthday = function(birthday, cb) {
 module.exports = {
     getBirthdays: getBirthdays,
     createBirthdays: createBirthdays,
-    updateBirthday: updateBirthday
+    updateBirthday: updateBirthday,
+    deleteBirthday: deleteBirthday
 };

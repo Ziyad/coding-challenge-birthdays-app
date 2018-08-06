@@ -41,10 +41,39 @@ router.post(
     }
 );
 
-router.put( // todo
+router.put( // update
     '/',
     function(req, res) {
+        Birthdays.updateBirthday(
+            req.body,
+            function(err, birthday) {
+                if(err) {
+                    logger.error(err);
+                    res.json(err);
+                } else {
+                    logger.info("updateBirthday Response: " + JSON.stringify(birthday));
+                    res.json(birthday);
+                }
+            }
+        );
+    }
+);
 
+router.delete(
+    '/',
+    function(req, res) {
+        Birthdays.deleteBirthday(
+            req.body,
+            function(err, birthday) {
+                if(err) {
+                    logger.error(err);
+                    res.json(err);
+                } else {
+                    logger.info("deleteBirthday Response: " + JSON.stringify(birthday));
+                    res.json(birthday);
+                }
+            }
+            );
     }
 );
 
